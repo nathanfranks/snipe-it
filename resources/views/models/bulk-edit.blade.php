@@ -84,15 +84,15 @@
                                     <div class="col-md-7 col-md-offset-3">
 
                                         <label for="requestable_nochange" class="form-control">
-                                            {{ Form::radio('requestable', '', true, ['id' => 'requestable_nochange', 'aria-label'=>'requestable_nochange']) }}
+                                            <input type="radio" name="requestable" id="requestable_nochange" value="" aria-label="requestable_nochange" checked>
                                             {{  trans('admin/hardware/general.requestable_status_warning')}}
                                         </label>
                                         <label for="requestable" class="form-control">
-                                            {{ Form::radio('requestable', '1', old('requestable'), ['id' => 'requestable', 'aria-label'=>'requestable']) }}
+                                            <input type="radio" name="requestable" id="requestable" value="1" aria-label="requestable">
                                             {{  trans('admin/hardware/general.requestable')}}
                                         </label>
                                         <label for="not_requestable" class="form-control">
-                                            {{ Form::radio('requestable', '0', old('requestable'), ['id' => 'not_requestable','aria-label'=>'not_requestable']) }}
+                                            <input type="radio" name="requestable" id="not_requestable" value="0" aria-label="not_requestable">
                                             {{  trans('admin/hardware/general.not_requestable')}}
                                         </label>
 
@@ -108,7 +108,7 @@
 
                     <div class="box-footer text-right">
                         <a class="btn btn-link pull-left" href="{{ URL::previous() }}" method="post" enctype="multipart/form-data">{{ trans('button.cancel') }}</a>
-                        <button type="submit" class="btn btn-success" id="submit-button"><i class="fas fa-check icon-white" aria-hidden="true"></i> {{ trans('general.update') }}</button>
+                        <button type="submit" class="btn btn-success" id="submit-button"><x-icon type="checkmark" /> {{ trans('general.update') }}</button>
                     </div><!-- /.box-footer -->
                 </div> <!--/.box.box-default-->
             </form>

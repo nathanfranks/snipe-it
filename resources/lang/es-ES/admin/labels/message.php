@@ -2,10 +2,10 @@
 
 return [
 
-    'invalid_return_count' => 'Invalid count returned from :name. Expected :expected, got :actual.',
-    'invalid_return_type'  => 'Invalid type returned from :name. Expected :expected, got :actual.',
-    'invalid_return_value' => 'Invalid value returned from :name. Expected :expected, got :actual.',
+    'invalid_return_count' => 'Cantidad incorrecta devuelta por :name. Se esperaba :expected, obtenido :actual.',
+    'invalid_return_type'  => 'Tipo no válido devuelto desde :name. Esperado :expected, obtenido :actual.',
+    'invalid_return_value' => 'Valor no válido devuelto por :name. Esperado :expected, obtenido :actual.',
 
-    'does_not_exist' => 'Label does not exist',
+    'does_not_exist' => 'La etiqueta no existe',
     
 ];

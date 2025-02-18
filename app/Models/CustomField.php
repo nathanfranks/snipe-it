@@ -7,7 +7,7 @@ use EasySlugger\Utf8Slugger;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
-use Schema;
+use Illuminate\Support\Facades\Schema;
 use Watson\Validating\ValidatingTrait;
 class CustomField extends Model
 {
@@ -307,7 +307,7 @@ class CustomField extends Model
     public function formatFieldValuesAsArray()
     {
         $result = [];
-        $arr = preg_split('/\\r\\n|\\r|\\n/', $this->field_values);
+        $arr = preg_split('/\\r\\n|\\r|\\n/', $this->field_values ?? '');
 
         if (($this->element != 'checkbox') && ($this->element != 'radio')) {
             $result[''] = 'Select '.strtolower($this->format);

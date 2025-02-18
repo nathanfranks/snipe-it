@@ -14,6 +14,9 @@ return [
         'restore_warning'       => 'Da, vrati. Potvrđujem da će ovo zameniti sve postojeće podatke koji se trenutno nalaze u bazi podataka. Ovo će takođe odjaviti sve vaše postojeće korisnike (uključujući i Vas).',
         'restore_confirm'       => 'Da li ste sigurni da želite da vratite svoju bazu podataka sa :filename?'
     ],
+    'restore' => [
+        'success'               => 'Rezervna kopija vašeg sistema je povraćena. Molim vas prijavite se ponovo.'
+    ],
     'purge' => [
         'error'     => 'Došlo je do pogreške prilikom brisanja. ',
         'validation_failed'     => 'Vaša potvrda o brisanju nije ispravna. Upišite reč "DELETE" u okvir potvrde.',
@@ -42,5 +45,6 @@ return [
         'error' => 'Nešto nije u redu. :app je adgovorila sa: :error_message',
         'error_redirect' => 'ERROR: 301/302 :endpoint vraća preusmerenje. Zbog bezbednosnih razloga, mi ne sledimo preusmerenja. Molim vas koristite direktnu krajnju tačku.',
         'error_misc' => 'Nešto nije u redu. :( ',
+        'webhook_fail' => ' neuspelo obaveštavanje putem veb zakačke: Proverite da li je URL i dalje validan.',
     ]
 ];
