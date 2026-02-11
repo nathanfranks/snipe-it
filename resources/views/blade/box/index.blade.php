@@ -32,7 +32,7 @@
             @if (($slot) && (!$slot->isEmpty()))
                 {{ $slot }}
             @endif
-        
+
     </div>
 
     @if ($route)
