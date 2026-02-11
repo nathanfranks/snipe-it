@@ -18,6 +18,7 @@
             <x-table
                     show_column_search="true"
                     show_advanced_search="true"
+                    fixed_right_number="2"
                     buttons="assetButtons"
                     api_url="{{ $route }}"
                     :presenter="\App\Presenters\AssetPresenter::dataTableLayout()"
