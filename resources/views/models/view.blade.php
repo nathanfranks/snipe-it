@@ -27,66 +27,23 @@
         <x-page-column class="col-md-9 main-panel">
             <x-tabs>
                 <x-slot:tabnav>
-                    @can('view', \App\Models\Asset::class)
-                        <x-tabs.nav-item
-                                name="assets"
-                                class="active"
-                                icon="fas fa-barcode fa-fw"
-                                label="{{ trans('general.assets') }}"
-                                count="{{ $model->assets()->AssetsForShow()->count() }}"
-                        />
+                    <x-tabs.asset-tab count="{{ $model->assets()->AssetsForShow()->count() }}" />
+                    <x-tabs.files-tab name="files" count="{{ $model->uploads()->count() }}" />
+
+                    @can('update', $model)
+                        <x-tabs.nav-item-upload />
                     @endcan
-
-                        <x-tabs.nav-item
-                                name="files"
-                                icon="fa-solid fa-file-contract fa-fw"
-                                label="{{ trans('general.files') }}"
-                                count="{{ $model->uploads()->count() }}"
-                        />
-
-                        @can('update', $model)
-                            <x-tabs.nav-item-upload />
-                        @endcan
                 </x-slot:tabnav>
 
 
                 <x-slot:tabpanes>
-                    <!-- start assets tab pane -->
-                    @can('view', \App\Models\Asset::class)
-                        <x-tabs.pane name="assets" class="in active">
-                            <x-slot:header>
-                                {{ trans('general.assets') }}
-                            </x-slot:header>
+                    <x-tabs.pane name="assets" class="in active">
+                        <x-table.assets :route="route('api.assets.index', ['model_id' => $model->id])" />
+                    </x-tabs.pane>
 
-                            <x-slot:bulkactions>
-                                <x-table.bulk-assets />
-                            </x-slot:bulkactions>
-
-                            <x-slot:content>
-                                <x-table
-                                        show_column_search="true"
-                                        show_advanced_search="true"
-                                        buttons="assetButtons"
-                                        api_url="{{ route('api.assets.index', ['model_id' => $model->id]) }}"
-                                        :presenter="\App\Presenters\AssetPresenter::dataTableLayout()"
-                                        export_filename="export-{{ str_slug($model->name) }}-assets-{{ date('Y-m-d') }}"
-                                />
-                            </x-slot:content>
-                        </x-tabs.pane>
-
-                        <!-- start files tab pane -->
-                        <x-tabs.pane name="files">
-                            <x-slot:header>
-                                {{ trans('general.files') }}
-                            </x-slot:header>
-                            <x-slot:content>
-                                <x-filestable object_type="models" :object="$model" />
-                            </x-slot:content>
-                        </x-tabs.pane>
-                        <!-- end files tab pane -->
-
-                @endcan
-
+                    <x-tabs.pane name="files">
+                        <x-filestable :object="$model" object_type="models" />
+                    </x-tabs.pane>
                 </x-slot:tabpanes>
             </x-tabs>
 
