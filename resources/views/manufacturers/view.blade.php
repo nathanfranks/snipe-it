@@ -12,24 +12,16 @@
     <i class="fa-regular fa-2x fa-square-caret-right pull-right" id="expand-info-panel-button" data-tooltip="true" title="{{ trans('button.show_hide_info') }}"></i>
 @endsection
 
-{{-- Page content --}}
 @section('content')
     <x-container columns="2">
         <x-page-column class="col-md-9 main-panel">
             <x-tabs>
                 <x-slot:tabnav>
-
                     <x-tabs.asset-tab count="{{ $manufacturer->assets()->AssetsForShow()->count() }}" />
                     <x-tabs.license-tab count="{{ $manufacturer->licenses->count() }}" />
                     <x-tabs.accessory-tab count="{{ $manufacturer->accessories->count() }}" />
                     <x-tabs.consumable-tab count="{{ $manufacturer->consumables->count() }}" />
                     <x-tabs.component-tab count="{{ $manufacturer->components->count() }}" />
-                    <x-tabs.files-tab name="files" />
-
-                    @can('update', $manufacturer)
-                        <x-tabs.nav-item-upload />
-                    @endcan
-
                 </x-slot:tabnav>
 
                 <x-slot:tabpanes>
