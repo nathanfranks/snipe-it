@@ -21,10 +21,10 @@
                 <x-slot:tabnav>
 
                     <x-tabs.asset-tab count="{{ $supplier->assets()->AssetsForShow()->count() }}" />
-                    <x-tabs.license-tab count="{{ $manufacturer->licenses->count() }}" />
-                    <x-tabs.accessory-tab count="{{ $manufacturer->accessories->count() }}" />
-                    <x-tabs.consumable-tab count="{{ $manufacturer->consumables->count() }}" />
-                    <x-tabs.component-tab count="{{ $manufacturer->components->count() }}" />
+                    <x-tabs.license-tab count="{{ $supplier->licenses->count() }}" />
+                    <x-tabs.accessory-tab count="{{ $supplier->accessories->count() }}" />
+                    <x-tabs.consumable-tab count="{{ $supplier->consumables->count() }}" />
+                    <x-tabs.component-tab count="{{ $supplier->components->count() }}" />
 
                     @can('view', \App\Models\AssetMaintenance::class)
                         <x-tabs.nav-item
