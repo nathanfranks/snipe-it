@@ -19,54 +19,12 @@
         <x-page-column class="col-md-9 main-panel">
             <x-tabs>
                 <x-slot:tabnav>
-                    @can('view', \App\Models\Asset::class)
-                        <x-tabs.nav-item
-                            name="assets"
-                            class="active"
-                            icon="fas fa-barcode fa-fw"
-                            label="{{ trans('general.assets') }}"
-                            count="{{ $supplier->assets()->AssetsForShow()->count() }}"
-                        />
-                    @endcan
 
-                    @can('view', \App\Models\License::class)
-                        <x-tabs.nav-item
-                                name="licenses"
-                                icon="far fa-save"
-                                label="{{ trans('general.licenses') }}"
-                                count="{{ $supplier->licenses->count() }}"
-                                tooltip="{{ trans('general.licenses') }}"
-                        />
-                    @endcan
-
-
-                    @can('view', \App\Models\Accessory::class)
-                        <x-tabs.nav-item
-                                name="accessories"
-                                icon="far fa-keyboard fa-fw"
-                                label="{{ trans('general.accessories') }}"
-                                count="{{ $supplier->accessories()->count() }}"
-                        />
-                    @endcan
-
-
-                    @can('view', \App\Models\Consumable::class)
-                        <x-tabs.nav-item
-                                name="consumables"
-                                icon="fas fa-tint fa-fw"
-                                label="{{ trans('general.consumables') }}"
-                                count="{{ $supplier->consumables()->count() }}"
-                        />
-                    @endcan
-
-                    @can('view', \App\Models\Component::class)
-                        <x-tabs.nav-item
-                                name="components"
-                                icon="fas fa-hdd fa-fw"
-                                label="{{ trans('general.components') }}"
-                                count="{{ $supplier->components->count() }}"
-                        />
-                    @endcan
+                    <x-tabs.asset-tab count="{{ $supplier->assets()->AssetsForShow()->count() }}" />
+                    <x-tabs.license-tab count="{{ $manufacturer->licenses->count() }}" />
+                    <x-tabs.accessory-tab count="{{ $manufacturer->accessories->count() }}" />
+                    <x-tabs.consumable-tab count="{{ $manufacturer->consumables->count() }}" />
+                    <x-tabs.component-tab count="{{ $manufacturer->components->count() }}" />
 
                     @can('view', \App\Models\AssetMaintenance::class)
                         <x-tabs.nav-item
