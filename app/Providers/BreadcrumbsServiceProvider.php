@@ -268,8 +268,9 @@ class BreadcrumbsServiceProvider extends ServiceProvider
 
         Breadcrumbs::for('fieldsets.create', fn (Trail $trail) =>
         $trail->parent('fields.index', route('fields.index'))
-            ->push(trans('general.create'), route('fieldsets.create'))
+            ->push(trans('admin/custom_fields/general.create_fieldset'), route('fieldsets.create'))
         );
+
 
         Breadcrumbs::for('fieldsets.show', fn (Trail $trail, CustomFieldset $fieldset) =>
         $trail->parent('fields.index', route('fields.index'))
