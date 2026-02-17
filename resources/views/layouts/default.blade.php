@@ -67,6 +67,7 @@
             --text-info: light-dark(#31708f,#2baae6);
             --text-success: light-dark(#039516,#4ced61);
             --text-warning: light-dark(#da9113,#f3a51f);
+            --input-border-color: light-dark(#d2d6de,#656464);
         }
 
         [data-theme="light"] {
@@ -216,7 +217,7 @@
         {
             background-color: var(--table-stripe-bg) !important;
             color: var(--color-fg) !important;
-            border-color: var(--text-help);
+            border-color: var(--input-border-color) !important;
 
         }
 
@@ -291,11 +292,6 @@
         }
 
 
-        input[type="*"]:focus,
-        textarea:focus
-        {
-            border-color: hsl(from var(--main-theme-color) h s calc(l - 5)) !important;
-        }
 
         input[type="*"]:disabled,
         input[type=checkbox]:disabled,
@@ -923,6 +919,18 @@
 
         .box.box-theme {
             border-top:  var(--main-theme-color) !important;
+        }
+
+        input[type="date"]:focus,
+        input[type="number"]:focus,
+        input[type="text"]:focus,
+        input[type="url"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus
+        {
+            border-color: hsl(from var(--main-theme-color) h s calc(l - 5)) !important;
         }
 
     </style>
