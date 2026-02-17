@@ -236,7 +236,7 @@
 
 
 
-        @if ($infoPanelObj->parent)
+        @if ((isset($infoPanelObj->parent)) && $infoPanelObj->parent))
             <x-info-element icon_type="parent" title="{{ trans('admin/locations/table.parent') }}">
                 {{ $infoPanelObj->parent->display_name }}
             </x-info-element>

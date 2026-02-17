@@ -226,6 +226,6 @@ class ComponentsController extends Controller
     public function show(Component $component)
     {
             $this->authorize('view', $component);
-            return view('components/view', compact('component'));
+            return view('components/view', compact('component'))->with('snipe_component', $component);
     }
 }
