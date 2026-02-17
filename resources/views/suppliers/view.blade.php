@@ -203,27 +203,8 @@
 
                     <x-slot:before_list>
 
-                        @can('update', \App\Models\Supplier::class)
-                            <a href="{{ ($supplier->deleted_at=='') ? route('suppliers.edit', $supplier->id) : '#' }}" class="btn btn-block btn-sm btn-warning btn-social hidden-print{{ ($supplier->deleted_at!='') ? ' disabled' : '' }}">
-                                <x-icon type="edit" />
-                                {{ trans('general.update') }}
-                            </a>
-                        @endcan
-
-                        @can('delete', \App\Models\Supplier::class)
-
-                            @if ($supplier->assets()->count() > 0)
-                                <button class="btn btn-block btn-sm btn-danger btn-social hidden-print disabled" data-tooltip="true"  data-placement="top" data-title="{{ trans('general.cannot_be_deleted') }}">
-                                    <x-icon type="delete" />
-                                    {{ trans('general.delete') }}
-                                </button>
-                            @else
-                                <button class="btn btn-block btn-sm btn-danger btn-social delete-asset" data-toggle="modal" title="{{ trans('general.delete_what', ['item'=> trans('general.supplier')]) }}" data-content="{{ trans('general.sure_to_delete_var', ['item' => $supplier->name]) }}" data-target="#dataConfirmModal" data-tooltip="true" data-icon="fa fa-trash" data-placement="top" data-title="{{ trans('general.delete_what', ['item'=> trans('general.supplier')]) }}" onClick="return false;">
-                                    <x-icon type="delete" />
-                                    {{ trans('general.delete') }}
-                                </button>
-                            @endif
-                        @endcan
+                        <x-button.wide-edit :item="$supplier" :route="route('suppliers.edit', $supplier->id)" />
+                        <x-button.wide-delete :item="$supplier" />
 
                     </x-slot:before_list>
 

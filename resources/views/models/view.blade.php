@@ -53,44 +53,9 @@
                 <x-box.info-panel :infoPanelObj="$model" img_path="{{ app('models_upload_url') }}">
                     <x-slot:before_list>
 
-                        @can('update', \App\Models\AssetModel::class)
-                                <a href="{{ ($model->deleted_at=='') ? route('models.edit', $model->id) : '#' }}" class="btn btn-block btn-sm btn-warning btn-social hidden-print{{ ($model->deleted_at!='') ? ' disabled' : '' }}">
-                                    <x-icon type="edit" />
-                                    {{ trans('admin/models/table.edit') }}
-                                </a>
-
-                        @endcan
-
-                        @can('create', \App\Models\AssetModel::class)
-                                <a href="{{ route('models.clone.create', $model->id) }}" class="btn btn-block btn-sm btn-warning btn-social hidden-print">
-                                    <x-icon type="clone" />
-                                    {{ trans('admin/models/table.clone') }}
-                                </a>
-                        @endcan
-
-                        @can('delete', \App\Models\AssetModel::class)
-
-                                @if ($model->deleted_at!='')
-                                    <form method="POST" action="{{ route('models.restore.store', $model->id) }}" style="padding-top: 5px">
-                                        @csrf
-                                        <button style="width: 100%;" class="btn btn-block btn-sm btn-warning btn-social hidden-print">
-                                            <x-icon type="restore" />
-                                            {{ trans('button.restore') }}
-                                        </button>
-                                    </form>
-
-                                @elseif ($model->assets()->count() > 0)
-                                    <button class="btn btn-block btn-sm btn-danger btn-social hidden-print disabled" data-tooltip="true"  data-placement="top" data-title="{{ trans('general.cannot_be_deleted') }}">
-                                        <x-icon type="delete" />
-                                        {{ trans('general.delete') }}
-                                    </button>
-                                @else
-                                    <button class="btn btn-block btn-sm btn-danger btn-social delete-asset" data-toggle="modal" title="{{ trans('general.delete_what', ['item'=> trans('general.asset_model')]) }}" data-content="{{ trans('general.sure_to_delete_var', ['item' => $model->name]) }}" data-target="#dataConfirmModal" data-tooltip="true" data-icon="fa fa-trash" data-placement="top" data-title="{{ trans('general.delete_what', ['item'=> trans('general.asset_model')]) }}" onClick="return false;">
-                                        <x-icon type="delete" />
-                                        {{ trans('general.delete') }}
-                                    </button>
-                        @endif
-                        @endcan
+                        <x-button.wide-edit :item="$model" :route="route('models.edit', $model->id)" />
+                        <x-button.wide-clone :item="$model" :route="route('models.clone.create', $model->id)" />
+                        <x-button.wide-delete :item="$model" />
 
                     </x-slot:before_list>
 

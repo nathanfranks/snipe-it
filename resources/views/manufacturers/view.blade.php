@@ -56,13 +56,8 @@
 
                     <x-slot:before_list>
 
-                        @can('update', \App\Models\Manufacturer::class)
-                            <x-button.wide-edit :item="$manufacturer" :route="route('manufacturers.edit', $manufacturer->id)" />
-                        @endcan
-
-                        @can('delete', \App\Models\Manufacturer::class)
-                            <x-button.wide-delete :item="$manufacturer" />
-                        @endcan
+                        <x-button.wide-edit :item="$manufacturer" :route="route('manufacturers.edit', $manufacturer->id)" />
+                        <x-button.wide-delete :item="$manufacturer" />
 
                     </x-slot:before_list>
 

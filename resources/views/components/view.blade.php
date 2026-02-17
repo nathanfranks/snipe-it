@@ -85,13 +85,9 @@
                             <x-button.wide-checkout :item="$snipe_component" :route="route('components.checkout.show', $snipe_component->id)" />
                         @endcan
 
-                        @can('update', \App\Models\Component::class)
-                            <x-button.wide-edit :item="$snipe_component" :route="route('components.edit', $snipe_component->id)" />
-                        @endcan
+                        <x-button.wide-edit :item="$snipe_component" :route="route('components.edit', $snipe_component->id)" />
+                        <x-button.wide-delete :item="$snipe_component" />
 
-                        @can('delete', \App\Models\Component::class)
-                            <x-button.wide-delete :item="$snipe_component" :route="route('components.edit', $snipe_component->id)" />
-                        @endcan
 
                     </x-slot:before_list>
 
