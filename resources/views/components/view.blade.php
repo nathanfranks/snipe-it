@@ -86,6 +86,8 @@
                         @endcan
 
                         <x-button.wide-edit :item="$snipe_component" :route="route('components.edit', $snipe_component->id)" />
+                        <x-button.wide-clone :item="$snipe_component" :route="route('components.clone.create', $snipe_component->id)" />
+
                         <x-button.wide-delete :item="$snipe_component" />
 
 

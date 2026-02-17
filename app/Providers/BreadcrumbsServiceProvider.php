@@ -214,6 +214,12 @@ class BreadcrumbsServiceProvider extends ServiceProvider
             ->push(trans('general.breadcrumb_button_actions.edit_item', ['name' => $component->name]), route('components.edit', $component))
         );
 
+        Breadcrumbs::for('components.clone.create', fn (Trail $trail, Component $component) =>
+        $trail->parent('components.index', route('components.index'))
+            ->push($component->display_name, route('components.show', $component))
+            ->push(trans('general.clone'), route('components.create'))
+        );
+
 
         /**
          * Consumables Breadcrumbs
