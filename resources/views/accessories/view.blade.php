@@ -24,7 +24,7 @@
             <x-tabs>
                 <x-slot:tabnav>
 
-                    <x-tabs.checkedout-tab count="{{ $accessory->checkouts_count }}" />
+                    <x-tabs.checkedout-tab class="active" count="{{ $accessory->checkouts_count }}" />
                     <x-tabs.files-tab count="{{ $accessory->uploads()->count() }}" />
                     <x-tabs.history-tab model="\App\Models\Accessory::class"/>
 
