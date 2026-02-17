@@ -460,6 +460,7 @@ return [
     'accessory_information' => 'Accessory Information:',
     'accessory_name'       => 'Accessory Name:',
     'clone_item'            => 'Clone Item',
+    'clone'                 => 'Clone',
     'checkout_tooltip' => 'Check this item out',
     'checkin_tooltip' => 'Check this item in so that it is available for re-issue, re-imaging, etc',
     'checkout_user_tooltip' => 'Check this item out to a user',
