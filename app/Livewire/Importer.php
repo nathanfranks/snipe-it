@@ -377,12 +377,14 @@ class Importer extends Component
             'city' => trans('general.city'),
             'notes' => trans('general.notes'),
             'state' => trans('general.state'),
+            'country' => trans('general.country'),
             'zip' => trans('general.zip'),
             'phone' => trans('general.phone'),
             'fax' => trans('general.fax'),
             'url' => trans('general.url'),
             'contact' => trans('general.contact'),
             'email' => trans('general.email'),
+            'tag_color' => trans('general.tag_color'),
         ];
 
         $this->manufacturers_fields = [
@@ -394,6 +396,7 @@ class Importer extends Component
             'support_email' =>  trans('admin/manufacturers/table.support_email'),
             'warranty_lookup_url' =>  trans('admin/manufacturers/table.warranty_lookup_url'),
             'url' =>  trans('general.url'),
+            'tag_color' => trans('general.tag_color'),
         ];
 
         $this->categories_fields = [
@@ -405,6 +408,8 @@ class Importer extends Component
             'use_default_eula' => trans('admin/categories/general.use_default_eula_column'),
             'require_acceptance' => trans('admin/categories/general.import_require_acceptance'),
             'checkin_email' => trans('admin/categories/general.import_checkin_email'),
+            'alert_on_response' => trans('admin/categories/general.import_alert_on_response'),
+            'tag_color' => trans('general.tag_color'),
         ];
 
 
@@ -414,16 +419,25 @@ class Importer extends Component
             'category' => trans('general.category'),
             'eol' => trans('general.eol'),
             'fieldset' => trans('admin/models/general.fieldset'),
-            'name' => trans('general.item_name_var', ['item' => trans('general.asset_model')]),
+            'name' => trans('general.name'),
             'manufacturer' => trans('general.manufacturer'),
             'min_amt' => trans('mail.min_QTY'),
             'model_number' => trans('general.model_no'),
-            'notes' => trans('general.item_notes', ['item' => trans('admin/hardware/form.model')]),
-            'requestable' => trans('admin/models/general.requestable'),
+            'notes' => trans('general.notes'),
+            'requestable' => trans('general.requestable'),
             'require_serial' => trans('admin/hardware/general.require_serial'),
+            'tag_color' => trans('general.tag_color'),
+            'depreciation' => trans('general.depreciation'),
         ];
 
-        // "real fieldnames" to a list of aliases for that field
+        /**
+         * These are the "real fieldnames" with a list of possible aliases,
+         * like misspellings, slight mis-phrasings, user-specific language, etc. that
+         * could be in the imported file header.
+         * This just makes the user's experience a little better when they're using
+         * their own CSV template.
+         */
+
         $this->aliases_fields = [
             'item_name' =>
                 [
@@ -451,6 +465,13 @@ class Importer extends Component
                 'order number',
                 'order',
             ],
+            'eula_text' => [
+                'eula',
+            ],
+
+            'checkin_email' => [
+                'checkin email',
+            ],
             'asset_model' =>
                 [
                     'model name',
@@ -467,16 +488,6 @@ class Importer extends Component
                     'eol',
                     'EOL',
                     'eol months',
-                ],
-            'depreciation' =>
-                [
-                    'Depreciation',
-                    'depreciation',
-                ],
-            'requestable' =>
-                [
-                    'requestable',
-                    'Requestable',
                 ],
             'gravatar' =>
                 [
@@ -554,7 +565,8 @@ class Importer extends Component
                 ],
             'require_serial' =>
                 [
-                    'serial required',
+                    trans('admin/models/general.importer.require_serial'),
+                    trans('admin/models/general.importer.serial_reqiured'),
                 ],
             'model_number' =>
                 [
