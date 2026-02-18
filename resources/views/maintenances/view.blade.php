@@ -25,7 +25,7 @@ use Carbon\Carbon;
                             name="details"
                             class="active"
                             icon_type="info-circle"
-                            label="{{ trans('general.info') }}"
+                            label="{{ trans('general.details') }}"
                     />
 
                     <x-tabs.files-tab count="{{ $maintenance->uploads()->count() }}" />
@@ -92,7 +92,7 @@ use Carbon\Carbon;
                                 @endif
 
 
-                                
+
                                 <div class="row">
                                     <div class="col-md-3">
                                         {{ trans('admin/maintenances/form.start_date') }}
