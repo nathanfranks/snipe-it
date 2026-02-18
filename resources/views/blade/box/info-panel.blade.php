@@ -196,7 +196,7 @@
 
 
         @if ($infoPanelObj->supplier)
-            <x-info-element icon_type="manufacturer" title="{{ trans('general.supplier') }}">
+            <x-info-element icon_type="supplier" title="{{ trans('general.supplier') }}">
                 <strong>{{ trans('general.supplier') }}</strong>
             </x-info-element>
 
@@ -410,7 +410,7 @@
                 @else
                     <x-icon type="x" class="fa-fw text-danger" title="{{ trans('general.no') }}" />
                 @endif
-                    {{ trans('admin/categories/table.require_acceptance') }}
+                    {{ trans('admin/categories/general.require_acceptance') }}
             </x-info-element>
         @endif
 
