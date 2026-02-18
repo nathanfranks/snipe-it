@@ -3,6 +3,7 @@
     'model' => null,
 ])
 
+@aware(['class'])
 
 @can('view', $model)
     <x-tabs.nav-item

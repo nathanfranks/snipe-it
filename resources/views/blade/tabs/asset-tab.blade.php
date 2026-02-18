@@ -1,11 +1,12 @@
 @props([
     'count' => null,
 ])
+@aware(['class'])
 
 @can('view', \App\Models\Asset::class)
     <x-tabs.nav-item
+            :$class
             name="assets"
-            class="active"
             icon_type="assets"
             label="{{ trans('general.assets') }}"
             count="{{ $count }}"
