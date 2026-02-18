@@ -1,2 +1,11 @@
-Item Name,Purchase Date,Purchase Cost,Location,Company,Order Number,Serial number,Category,Quantity
-RTX 4080,2024-01-01,5000.00,Austin,Grokability,2790,123456789,GPU,10
+Name,Manufacturer,Serial Number,Category,Purchase Date,Purchase Cost,Location,Company,Order Number,Quantity,Notes,Model Number,Min Qty,Supplier
+Hummus,Reallinks,79da4e83-00a1-4460-a0c2-1be466501adc,Games,2025-08-29,4.29,Independencia,Cartwright and Sons,76273,130,"Creamy chickpea dip, perfect for veggies or pita.",Convenient dispenser for dog waste bags on walks.,157,Babbleblab
+Cilantro Lime Rice,Eamia,ea0a5745-ac0e-4621-a867-9db411709890,Computers,2025-12-29,2.99,Zhengwan,,13901,137,"Easy-to-prepare rice with cilantro and lime flavors, great as a side.",Comfortable and adjustable harness for dogs.,273,Dabvine
+Portable Bluetooth Headphones,Kamba,,Computers,2025-08-08,79.99,Nýdek,Lynch Inc,45181,125,,Chocolate coconut protein bars inspired by the classic candy bar.,248,Zoonoodle
+Mango Chutney,Twiyo,,Shoes,2026-01-04,3.99,Bjuv,Spencer-Schulist,66795,209,Sweet and tangy mango chutney for a flavorful dip.,Gentle glove for brushing and massaging your pet.,182,
+Coconut Milk Ice Cream,Meevee,6789cb20-2ab4-4f01-b90f-a93975d058ba,Games,2025-09-24,6.99,Karvia,Marvin LLC,89600,295,"Dairy-free ice cream made with coconut milk, creamy and delicious.","Soft and comfortable robe, perfect for lounging at home.",99,
+Inspirational Wall Art,Trudeo,70343e91-739b-4d5b-b1ff-a54a6798d592,Books,2025-02-10,,Pljevlja,Zemlak Inc,39480,162,Quote wall art to inspire and motivate.,Complete set of gardening tools for all your needs.,235,Thoughtstorm
+Herb Garlic Butter,Roodel,692b6ea2-c7fd-4d3e-a66b-7253b2cdd9a2,Shoes,2025-03-05,3.99,San Jerónimo,"Nolan, Keeling and Orn",34539,136,"A flavorful garlic butter blend, perfect for cooking or baking.",All ingredients included for delicious chicken fajitas.,240,Gabspot
+High-Waisted Skirt,Twinder,f1c39275-11e4-471e-acc5-faf1c08eabf6,Kids,2025-07-11,34.99,Antonio Toledo Corro,,34596,86,"Chic high-waisted skirt, perfect for professional or casual settings.",Space-saving bike for indoor workouts.,54,
+Portable Charger with Solar Panel,Photobug,1b4f1523-9c88-4a04-b9cd-97a3ea43eae2,Health,2025-01-10,45.99,Lipce Reymontowskie,Kshlerin-Cremin,89435,150,Eco-friendly charger with a built-in solar panel for outdoor use.,Tender grilled chicken marinated in lemon herbs.,3,Voolith
+Reusable Food Storage Bags,Trilith,,Home,2025-10-23,19.99,Colca,Larson-Christiansen,,119,Eco-friendly silicone bags for food storage and snacks.,Secure phone mount that wirelessly charges your device while driving.,35,Zoomdog
