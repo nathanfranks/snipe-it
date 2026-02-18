@@ -150,10 +150,15 @@ class Importer extends Component
             // if you got here, we didn't find a match. Try the $aliases_fields
             foreach ($this->aliases_fields as $key => $alias_values) {
                 foreach ($alias_values as $alias_value) {
+
+                    // Trim off any trailing spaces
+                    $key = trim($key);
+                    $header = trim($header);
                     if (strcasecmp($alias_value, $header) === 0) { // aLsO CaSe-INSENSitiVE!
                         // Make *absolutely* sure that this key actually _exists_ in this import type -
                         // you can trigger this by importing accessories with a 'Warranty' column (which don't exist
                         // in "Accessories"!)
+
                         if (array_key_exists($key, $this->columnOptions[$type])) {
                             $this->field_map[$i] = $key;
                             continue 3; // bust out of both of these loops and the surrounding one - e.g. move on to the next header
@@ -262,7 +267,7 @@ class Importer extends Component
             'order_number' => trans('general.order_number'),
             'purchase_cost' => trans('general.purchase_cost'),
             'purchase_date' => trans('general.purchase_date'),
-            'quantity' => trans('general.qty'),
+            'qty' => trans('general.qty'),
             'supplier' => trans('general.supplier'),
         ];
 
@@ -278,7 +283,7 @@ class Importer extends Component
             'order_number' => trans('general.order_number'),
             'purchase_cost' => trans('general.purchase_cost'),
             'purchase_date' => trans('general.purchase_date'),
-            'quantity' => trans('general.qty'),
+            'qty' => trans('general.qty'),
             'serial' => trans('general.serial_number'),
             'supplier' => trans('general.supplier'),
         ];
@@ -438,6 +443,13 @@ class Importer extends Component
                 'item number',
                 'item no.',
                 'item #',
+            ],
+            'order_number' => [
+                'order #',
+                'order no.',
+                'order num',
+                'order number',
+                'order',
             ],
             'asset_model' =>
                 [
