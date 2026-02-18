@@ -1,10 +1,10 @@
 @props([
     'infoPanelObj' => null,
     'img_path' => null,
+    'snipeSettings' => \App\Models\Setting::getSettings()
 ])
 
-
-
+<!-- start side info-box -->
 <div class="box-header with-border" style="padding-top: 0;">
     <h3 class="box-title side-box-header" style="line-height: 20px">
         {{ $infoPanelObj->display_name }}
@@ -95,6 +95,51 @@
             </x-info-element>
         @endif
 
+        @if (method_exists($infoPanelObj, 'numCheckedOut'))
+            <x-info-element icon_type="checkedout" title="{{ trans('general.checked_out') }}">
+                {{ (int) $infoPanelObj->numCheckedOut() }}
+                {{ trans('general.checked_out') }}
+            </x-info-element>
+        @endif
+
+        @if (method_exists($infoPanelObj, 'numRemaining'))
+            <x-info-element icon_type="available" title="{{ trans('general.remaining') }}">
+                {{ $infoPanelObj->numRemaining() }}
+                {{ trans('general.remaining') }}
+            </x-info-element>
+        @endif
+
+        @if ($infoPanelObj->purchase_cost)
+            <x-info-element>
+                <x-icon type="cost" class="fa-fw" title="{{ trans('general.unit_cost') }}" />
+                {{ trans('general.unit_cost') }}
+
+                @if ((isset($infoPanelObj->location)) && ($infoPanelObj->location->currency!=''))
+                    {{ $infoPanelObj->location->currency }}
+                @else
+                    {{ $snipeSettings->default_currency }}
+                @endif
+
+                {{ Helper::formatCurrencyOutput($infoPanelObj->purchase_cost) }}
+            </x-info-element>
+
+            @if (isset($infoPanelObj->qty))
+                <x-info-element>
+                    <x-icon type="cost" class="fa-fw" title="{{ trans('general.total_cost') }}" />
+                    {{ trans('general.total_cost') }}
+
+                    @if ((isset($infoPanelObj->location)) && ($infoPanelObj->location->currency!=''))
+                        {{ $infoPanelObj->location->currency }}
+                    @else
+                        {{ $snipeSettings->default_currency }}
+                    @endif
+
+                    {{ Helper::formatCurrencyOutput($infoPanelObj->totalCostSum()) }}
+                </x-info-element>
+            @endif
+
+        @endif
+
         @if ($infoPanelObj->order_number)
             <x-info-element icon_type="order" title="{{ trans('general.order_number') }}">
                 {{ $infoPanelObj->order_number }}
@@ -104,18 +149,6 @@
         @if ($infoPanelObj->purchase_order)
             <x-info-element icon_type="purchase_order" title="{{ trans('admin/licenses/form.purchase_order') }}">
                 {{ $infoPanelObj->purchase_order }}
-            </x-info-element>
-        @endif
-
-        @if (function_exists('numRemaining'))
-            <x-info-element icon_type="available" title="{{ trans('general.remaining') }}">
-                {{ $infoPanelObj->numRemaining() }}
-                {{ trans('general.remaining') }}
-            </x-info-element>
-
-            <x-info-element icon_type="checkedout" title="{{ trans('general.available') }}">
-                {{ $infoPanelObj->checkouts_count }}
-                {{ trans('general.checked_out') }}
             </x-info-element>
         @endif
 
@@ -187,7 +220,7 @@
                 </x-info-element.url>
             </x-info-element>
 
-            <x-info-element icon_type="external-link" class="subitem" title="{{ trans('general.url') }}">
+            <x-info-element icon_type="external-link" class="subitem" title="{{ trans('admin/manufacturers/table.support_url') }}">
                 <x-info-element.url>
                     {{ $infoPanelObj->manufacturer->support_url }}
                 </x-info-element.url>
@@ -337,12 +370,6 @@
             </x-info-element>
         @endif
 
-        @if ($infoPanelObj->purchase_cost)
-            <x-info-element>
-                <x-icon type="cost" class="fa-fw" title="{{ trans('general.purchase_cost') }}" />
-                {{ Helper::formatCurrencyOutput($infoPanelObj->purchase_cost) }}
-            </x-info-element>
-        @endif
 
 
         @if ($infoPanelObj->purchase_date)
@@ -489,5 +516,5 @@
 
 </div>
 
-
+<!-- end side info-box -->
 
