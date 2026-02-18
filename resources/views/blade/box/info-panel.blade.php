@@ -83,7 +83,7 @@
         @endif
 
         @if ($infoPanelObj->model_number)
-            <x-info-element icon_type="number" title="{{ trans('general.model_number') }}">
+            <x-info-element icon_type="number" title="{{ trans('general.model_no') }}">
                 {{ $infoPanelObj->model_number }}
             </x-info-element>
         @endif
