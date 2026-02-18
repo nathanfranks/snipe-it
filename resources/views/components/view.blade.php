@@ -81,15 +81,10 @@
 
                     <x-slot:before_list>
 
-                        @can('checkout', \App\Models\Component::class)
-                            <x-button.wide-checkout :item="$snipe_component" :route="route('components.checkout.show', $snipe_component->id)" />
-                        @endcan
-
+                        <x-button.wide-checkout :item="$snipe_component" :route="route('components.checkout.show', $snipe_component->id)" />
                         <x-button.wide-edit :item="$snipe_component" :route="route('components.edit', $snipe_component->id)" />
                         <x-button.wide-clone :item="$snipe_component" :route="route('components.clone.create', $snipe_component->id)" />
-
                         <x-button.wide-delete :item="$snipe_component" />
-
 
                     </x-slot:before_list>
 

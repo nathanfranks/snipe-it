@@ -84,7 +84,19 @@
 
         @if ($infoPanelObj->model_number)
             <x-info-element icon_type="number" title="{{ trans('general.model_no') }}">
+                {{ trans('general.model_no') }}
+                <x-copy-to-clipboard copy_what="model_number" class="pull-right">
                 {{ $infoPanelObj->model_number }}
+                </x-copy-to-clipboard>
+            </x-info-element>
+        @endif
+
+        @if ($infoPanelObj->item_no)
+            <x-info-element icon_type="number" title="{{ trans('admin/consumables/general.item_no') }}">
+                {{ trans('admin/consumables/general.item_no') }}
+                <x-copy-to-clipboard copy_what="item_no" class="pull-right">
+                {{ $infoPanelObj->item_no }}
+                </x-copy-to-clipboard>
             </x-info-element>
         @endif
 
@@ -142,13 +154,17 @@
 
         @if ($infoPanelObj->order_number)
             <x-info-element icon_type="order" title="{{ trans('general.order_number') }}">
-                {{ $infoPanelObj->order_number }}
+                <x-copy-to-clipboard copy_what="order_number" class="pull-right">
+                    {{ $infoPanelObj->order_number }}
+                </x-copy-to-clipboard>
             </x-info-element>
         @endif
 
         @if ($infoPanelObj->purchase_order)
             <x-info-element icon_type="purchase_order" title="{{ trans('admin/licenses/form.purchase_order') }}">
+                <x-copy-to-clipboard copy_what="purchase_order" class="pull-right">
                 {{ $infoPanelObj->purchase_order }}
+                </x-copy-to-clipboard>
             </x-info-element>
         @endif
 
