@@ -115,8 +115,8 @@
         @endif
 
         @if (method_exists($infoPanelObj, 'numRemaining'))
-            <x-info-element icon_type="available" title="{{ trans('general.remaining') }}">
-                {{ $infoPanelObj->numRemaining() }}
+            <x-info-element icon_type="available" class="{{ ($infoPanelObj->numRemaining()) <= $infoPanelObj->min_amt ? 'text-danger' : 'text-success' }}" title="{{ trans('general.remaining') }}">
+                 {{ $infoPanelObj->numRemaining() }}
                 {{ trans('general.remaining') }}
             </x-info-element>
         @endif
