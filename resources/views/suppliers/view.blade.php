@@ -20,8 +20,8 @@
             <x-tabs>
                 <x-slot:tabnav>
 
-                    <x-tabs.asset-tab count="{{ $supplier->assets()->AssetsForShow()->count() }}" />
-                    <x-tabs.license-tab count="{{ $supplier->licenses->count() }}" />
+                    <x-tabs.asset-tab count="{{ $supplier->assets()->AssetsForShow()->count() }}" class="active" />
+                    <x-tabs.license-tab count="{{ $supplier->licenses->count() }}" class="active" />
                     <x-tabs.accessory-tab count="{{ $supplier->accessories->count() }}" />
                     <x-tabs.consumable-tab count="{{ $supplier->consumables->count() }}" />
                     <x-tabs.component-tab count="{{ $supplier->components->count() }}" />

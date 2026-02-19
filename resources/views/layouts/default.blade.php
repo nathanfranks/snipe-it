@@ -289,6 +289,7 @@
         .input-group-addon {
             background-color: var(--input-group-bg) !important;
             color: var(--input-group-fg) !important;
+            border-color: var(--input-border-color) !important;
         }
 
 
@@ -931,6 +932,18 @@
         textarea:focus
         {
             border-color: hsl(from var(--main-theme-color) h s calc(l - 5)) !important;
+        }
+
+        input[type="date"]:required,
+        input[type="number"]:required,
+        input[type="text"]:required,
+        input[type="url"]:required,
+        input[type="email"]:required,
+        input[type="password"]:required,
+        input[type="tel"]:required,
+        textarea:required
+        {
+            border-right: 5px solid var(--text-warning) !important;
         }
 
     </style>
