@@ -946,6 +946,9 @@
             border-right: 5px solid var(--text-warning) !important;
         }
 
+        .bootstrap-table .fixed-table-container .table tbody tr.selected td {
+            background-color: light-dark(hsl(from var(--main-theme-color) h s calc(l + 40)),hsl(from var(--main-theme-color) h s calc(l - 40))) !important;
+        }
     </style>
 
     {{-- Custom CSS --}}
