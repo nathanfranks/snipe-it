@@ -1,10 +1,10 @@
 @props([
     'count' => null,
-    'model' => null,
+    'item' => null,
     'class' => false,
 ])
 
-@can('view', $model)
+@can('view', $item)
     <x-tabs.nav-item
             name="assigned"
             :$class
