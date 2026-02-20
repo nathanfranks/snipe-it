@@ -1,10 +1,11 @@
 @props([
     'count' => null,
+    'class' => false,
 ])
-@aware(['class'])
 
 @can('view', \App\Models\Accessory::class)
     <x-tabs.nav-item
+            :$class
             name="accessories"
             icon_type="accessory"
             label="{{ trans('general.accessories') }}"
