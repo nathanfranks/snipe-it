@@ -5,7 +5,6 @@
 
 @can('view', \App\Models\User::class)
     <x-tabs.nav-item
-            :$class
             name="users"
             icon_type="user"
             label="{{ trans('general.users') }}"
